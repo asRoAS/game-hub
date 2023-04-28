@@ -1,4 +1,4 @@
-import useData from '../components/useData';
+import useData from './useData';
 import { Genre } from './useGenres';
 
 export interface Platform {
