@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {
   Box,
   Flex,
-  Grid, GridItem, HStack, Show,
+  Grid, GridItem, Show,
 } from '@chakra-ui/react';
 import NavBar from './components/NavBar';
 import GameGrid from './components/GameGrid';
@@ -16,6 +16,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
       </Show>
       <GridItem area="main">
         <Flex paddingLeft={3} marginBottom={5}>
-          <Box marginRight={5}>
+          <Box>
             <PlatformSelector
               selectedPlatfrom={gameQuery.platform}
               onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
