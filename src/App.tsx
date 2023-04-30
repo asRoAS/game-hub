@@ -5,20 +5,19 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import GameGrid from './components/GameGrid';
+import GameHeading from './components/GameHeading';
 import GenreList from './components/GenreList';
 import NavBar from './components/NavBar';
 import PlatformSelector from './components/PlatformSelector';
 import SortSelector from './components/SortSelector';
-import { Genre } from './hooks/useGenres';
 import { Platform } from './hooks/usePlatforms';
-import GameHeading from './components/GameHeading';
 
 // undefined: the absence of a value
 // null: the intentional absense of a value
 
 export interface GameQuery {
   genreId?: number;
-  platform: Platform | null;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -58,8 +57,11 @@ function App() {
           <Flex marginBottom={5}>
             <Box marginRight={5}>
               <PlatformSelector
-                selectedPlatform={gameQuery.platform}
-                onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+                selectedPlatformId={gameQuery.platformId}
+                onSelectPlatform={(platform) => setGameQuery({
+                  ...gameQuery,
+                  platformId: platform.id,
+                })}
               />
             </Box>
             <SortSelector

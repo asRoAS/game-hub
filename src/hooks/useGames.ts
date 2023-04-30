@@ -2,7 +2,6 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { GameQuery } from '../App';
 import APIClient, { FetchResponse } from '../services/api-clients';
 import { Platform } from './usePlatforms';
-// eslint-disable-next-line import/no-duplicates
 
 export interface Game {
   id: number;
@@ -37,8 +36,8 @@ const useGames = (gameQuery: GameQuery) => useInfiniteQuery<FetchResponse<Game>,
   queryFn: ({ pageParam = 1 }) => apiClient
     .getAll({
       params: {
-        genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
+        genres: gameQuery.genreId,
+        platforms: gameQuery.platformId,
         ordering: gameQuery.sortOrder,
         search: gameQuery.searchText,
         page: pageParam,
