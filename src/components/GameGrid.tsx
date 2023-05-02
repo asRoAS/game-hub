@@ -5,27 +5,35 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { GameQuery } from '../App';
 import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
 
-interface Props {
-  gameQuery: GameQuery;
-  // selectedGenre: Genre | null;
-  // selectedPlatform: Platform | null;
-}
+// interface Props {
+//   gameQuery: GameQuery;
+//   // selectedGenre: Genre | null;
+//   // selectedPlatform: Platform | null;
+// }
 
-function GameGrid({ gameQuery }: Props) {
+// function GameGrid() {
+//   const {
+//     data,
+//     error,
+//     isLoading,
+//     isFetchingNextPage,
+//     fetchNextPage,
+//     hasNextPage,
+//   } = useGames(gameQuery);
+
+function GameGrid() {
   const {
     data,
     error,
     isLoading,
-    isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useGames(gameQuery);
+  } = useGames();
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
