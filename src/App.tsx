@@ -14,13 +14,6 @@ import SortSelector from './components/SortSelector';
 // undefined: the absence of a value
 // null: the intentional absense of a value
 
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortOrder: string;
-  searchText: string;
-}
-
 function App() {
   // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   // const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
