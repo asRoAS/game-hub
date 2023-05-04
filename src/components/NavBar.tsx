@@ -1,20 +1,21 @@
-import { Flex, Image } from '@chakra-ui/react';
+import { HStack, Image } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.webp';
 import ColorModeSwitch from './ColorModeSwitch';
 import SearchInput from './SearchInput';
 
 function NavBar() {
   return (
-    <Flex
+    <HStack
       padding="10px"
       justifyContent="space-between"
-      gap={5}
-      alignItems="center"
     >
-      <Image src={logo} boxSize="60px" />
+      <Link to="/">
+        <Image src={logo} boxSize="60px" objectFit="cover" />
+      </Link>
       <SearchInput />
       <ColorModeSwitch />
-    </Flex>
+    </HStack>
   );
 }
 

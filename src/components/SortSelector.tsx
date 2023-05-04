@@ -21,7 +21,11 @@ function SortSelector() {
 
   return (
     <Menu>
-      <MenuButton marginX="10px" as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton
+        // marginX="10px"
+        as={Button}
+        rightIcon={<BsChevronDown />}
+      >
         Order by:
         {currentSortOrder?.label || 'Relevance'}
       </MenuButton>
