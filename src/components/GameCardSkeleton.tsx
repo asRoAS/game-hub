@@ -17,4 +17,3 @@ function GameCardSkeleton() {
 }
 
 export default GameCardSkeleton;
-alksdjf
