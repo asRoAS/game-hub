@@ -5,6 +5,7 @@ import {
 import useGame from '../hooks/useGame';
 import ExpandableText from '../components/ExpandableText';
 import GameAttributes from '../components/GameAttributes';
+import GameTrailer from '../components/GameTrailer';
 
 function GameDetailPage() {
   const { slug } = useParams();
@@ -20,6 +21,7 @@ function GameDetailPage() {
       {/* <Text>{game.description_raw}</Text> */}
       <ExpandableText>{game.description_raw}</ExpandableText>
       <GameAttributes game={game} />
+      <GameTrailer gameId={game.id} />
     </>
   );
 }
