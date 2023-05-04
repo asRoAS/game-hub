@@ -45,39 +45,44 @@ function GameGrid() {
   return (
     <>
       {/* // <Box padding="10px"> */}
-      <InfiniteScroll
-        dataLength={fetchedGamesCount}
-        hasMore={!!hasNextPage}
-        next={() => fetchNextPage()}
-        loader={<Spinner />}
-      >
-        <SimpleGrid
-          columns={{
-            sm: 1,
-            md: 2,
-            lg: 3,
-            xl: 5,
-          }}
-          spacing={3}
+      <div>
+        <InfiniteScroll
+          dataLength={fetchedGamesCount}
+          hasMore={!!hasNextPage}
+          next={() => fetchNextPage()}
+          loader={<Spinner />}
         >
-          {isLoading
+          <SimpleGrid
+            columns={{
+              sm: 1,
+              md: 2,
+              lg: 3,
+              xl: 5,
+            }}
+            spacing={3}
+          >
+            {isLoading
          && skeletons.map((skeleton) => (
            <GameCardContainer key={skeleton}>
              <GameCardSkeleton />
            </GameCardContainer>
          ))}
-          {data?.pages.map((page, index) => (
-            <React.Fragment key={index}>
-              {page.results.map((game) => (
-                <GameCardContainer key={game.id}>
-                  <GameCard game={game} />
-                </GameCardContainer>
-              ))}
-            </React.Fragment>
-          ))}
-        </SimpleGrid>
-      </InfiniteScroll>
-      {/* {hasNextPage && (
+            {data?.pages.map((page, index) => (
+              <React.Fragment
+                key={index}
+              >
+                {page.results.map((game) => (
+                  <GameCardContainer
+                    key={game.id}
+                  >
+                    <GameCard game={game} />
+                  </GameCardContainer>
+                ))}
+              </React.Fragment>
+            ))}
+          </SimpleGrid>
+        </InfiniteScroll>
+        {/* {hasNextPage && (
         <Button
         type="button"
         onClick={() => fetchNextPage()}
@@ -86,7 +91,8 @@ function GameGrid() {
         {isFetchingNextPage ? 'Loading...' : 'Load More'}
         </Button>
       ) } */}
-      {/* </Box> */}
+        {/* </Box> */}
+      </div>
     </>
   );
 }
