@@ -1,5 +1,5 @@
 import {
-  Flex,
+  HStack,
   Switch,
   Text,
   useColorMode,
@@ -9,10 +9,14 @@ function ColorModeSwitch() {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <Flex flexShrink={0} gap={2}>
-      <Switch colorScheme="green" isChecked={colorMode === 'dark'} onChange={toggleColorMode} />
-      <Text>Dark Mode</Text>
-    </Flex>
+    <HStack>
+      <Switch
+        colorScheme="green"
+        isChecked={colorMode === 'dark'}
+        onChange={toggleColorMode}
+      />
+      <Text whiteSpace="nowrap">Dark Mode</Text>
+    </HStack>
   );
 }
 
